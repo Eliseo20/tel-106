@@ -24,16 +24,6 @@ const Navbar = ({ onHomeClick }) => {
                     <button onClick={onHomeClick} className="text-sm font-bold text-slate-400 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
                         Inicio
                     </button>
-                    <button className="text-sm font-bold text-slate-400 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
-                        Guías
-                    </button>
-                    <button className="text-sm font-bold text-slate-400 hover:text-white transition-colors cursor-pointer uppercase tracking-widest">
-                        Simulador
-                    </button>
-                    <div className="h-6 w-[1px] bg-white/10 mx-2"></div>
-                    <button className="px-5 py-2.5 rounded-xl bg-primary-600 text-white font-bold text-sm hover:bg-primary-500 transition-all shadow-lg shadow-primary-600/10 cursor-pointer">
-                        Acceso Alumno
-                    </button>
                 </div>
 
                 {/* Mobile Menu Icon */}

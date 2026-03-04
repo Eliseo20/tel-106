@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import ModuleSidebar from './components/ModuleSidebar';
 import HomeView from './components/HomeView';
 import LabArticleView from './components/LabArticleView';
+import AlgebraView from './components/AlgebraView';
+import { CURRICULUM_DATA } from './data/curriculumData';
 import { LAB_DATA } from './data/labData';
 
 const App = () => {
@@ -22,12 +25,13 @@ const App = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-primary-500 selection:text-white">
       <Navbar onHomeClick={handleBackHome} />
+      <ModuleSidebar />
 
-      <main className="container mx-auto px-6 py-12 md:py-20">
+      <main className="container mx-auto px-6 py-12 md:py-20 relative">
         <Routes>
           <Route
             path="/"
-            element={<HomeView labs={LAB_DATA} onSelectLab={handleSelectLab} />}
+            element={<HomeView units={CURRICULUM_DATA} />}
           />
           <Route
             path="/lab/:id"
@@ -37,6 +41,10 @@ const App = () => {
                 onBack={handleBackHome}
               />
             }
+          />
+          <Route
+            path="/topic/t1-1"
+            element={<AlgebraView onBack={handleBackHome} />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

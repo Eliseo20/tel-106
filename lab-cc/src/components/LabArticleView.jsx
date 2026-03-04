@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Beaker, ClipboardList, Info, Tool, HardHat } from 'lucide-react';
+import { ArrowLeft, Beaker, ClipboardList, Info, Wrench, HardHat } from 'lucide-react';
 import VideoPlayer from './VideoPlayer';
 
 const LabArticleView = ({ lab, onBack }) => {
