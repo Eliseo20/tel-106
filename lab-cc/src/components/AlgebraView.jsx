@@ -447,7 +447,7 @@ const AlgebraView = ({ onBack }) => {
                     <div className="space-y-8">
                         <div className="flex items-start gap-5">
                             <span className="text-5xl font-black text-primary-500/20 leading-none">6.</span>
-                            <h2 className="text-2xl font-bold text-white pt-1">Reflexión histórica y cierre</h2>
+                            <h2 className="text-2xl font-bold text-white pt-1">Reflexión histórica yy cierre</h2>
                         </div>
                         <p className="text-slate-300 leading-relaxed italic border-l-4 border-primary-500/50 pl-6 bg-primary-500/5 py-4 rounded-r-2xl">
                             Aunque en CC predominan las relaciones lineales, comprender estos orígenes refuerza la apreciación del álgebra como puente entre lo físico y lo simbólico.
