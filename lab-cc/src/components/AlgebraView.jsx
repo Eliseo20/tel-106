@@ -61,9 +61,6 @@ const AlgebraView = ({ onBack }) => {
                 <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isHistoryOpen ? 'opacity-100 max-h-[12000px] visible' : 'opacity-0 max-h-0 invisible'}`}>
                     <div className="glass-morphism rounded-3xl p-8 md:p-12 space-y-12 text-slate-300 leading-relaxed text-lg border-primary-500/10 border">
 
-                        <p className="font-medium text-white italic border-l-4 border-primary-500 pl-6 py-2 bg-primary-500/5 rounded-r-xl">
-                            "Queridos estudiantes: antes de que resolvamos ecuaciones como V = I·R... detengámonos un momento en la fascinante historia del álgebra."
-                        </p>
 
                         <div className="space-y-6">
                             <p>
@@ -269,15 +266,6 @@ const AlgebraView = ({ onBack }) => {
                             </figure>
                         </div>
 
-                        <div className="p-8 rounded-2xl bg-primary-500/10 border border-primary-500/20 mt-12 shadow-inner shadow-primary-500/5">
-                            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-primary-500"></span>
-                                Conclusión para nuestro curso
-                            </h3>
-                            <p className="text-slate-300">
-                                En nuestro laboratorio de corriente continua, cada vez que escribimos una ecuación como I₁ + I₂ = I₃ estamos usando 4000 años de historia. El álgebra es un puente entre culturas y épocas. ¡Excelente inicio de estudio!
-                            </p>
-                        </div>
                     </div>
                 </div>
             </section>
