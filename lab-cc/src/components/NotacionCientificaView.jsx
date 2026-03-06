@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { ArrowLeft, BookOpen, ChevronDown, ChevronRight, Zap, Target, Lightbulb, Calculator, GitCommit, Layers, AlertCircle } from 'lucide-react';
+import { ArrowLeft, BookOpen, ChevronDown, ChevronRight, Zap, Target, Lightbulb, Calculator, GitCommit, Layers, AlertCircle, CheckCircle } from 'lucide-react';
 
 const NotacionCientificaView = ({ onBack }) => {
     const [isTechnicalContentOpen, setIsTechnicalContentOpen] = useState(true);
+    const [isExercisesOpen, setIsExercisesOpen] = useState(false);
 
     return (
         <div className="max-w-4xl mx-auto space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 pb-20">
@@ -398,6 +399,271 @@ const NotacionCientificaView = ({ onBack }) => {
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+
+            {/* Exercises Section */}
+            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-500">
+                <button
+                    onClick={() => setIsExercisesOpen(!isExercisesOpen)}
+                    className="w-full flex items-center justify-between p-6 glass-morphism rounded-2xl hover:bg-white/5 transition-all duration-300 group shadow-lg"
+                >
+                    <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-xl transition-colors duration-300 ${isExercisesOpen ? 'bg-primary-500 text-white' : 'bg-white/5 text-primary-400 group-hover:bg-primary-500/20'}`}>
+                            <CheckCircle className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <h2 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                                Ejercicios Resueltos
+                            </h2>
+                            <p className="text-sm font-medium text-slate-500">15 ejercicios explicados paso a paso</p>
+                        </div>
+                    </div>
+                    <div className={`p-2 rounded-full transition-all duration-300 ${isExercisesOpen ? 'bg-primary-500/10 text-primary-400' : 'bg-white/5 text-slate-400'}`}>
+                        {isExercisesOpen ? <ChevronDown className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+                    </div>
+                </button>
+
+                <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isExercisesOpen ? 'opacity-100 max-h-[14000px] visible mt-4' : 'opacity-0 max-h-0 invisible'}`}>
+                    <div className="glass-morphism rounded-[2.5rem] p-8 md:p-10 space-y-8 border border-primary-500/10">
+
+                        <p className="text-slate-300 text-lg mb-8">
+                            A continuación, se presentan 15 ejercicios resueltos paso a paso para dominar la conversión y operaciones con notación científica y de ingeniería.
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {/* Ejercicio 1 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-4">Ejercicio 1</span>
+                                <p className="text-white font-medium mb-4">Expresar en notación científica:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-primary-300 mb-4">4500</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Mover coma:</span> <span className="text-white font-mono">4500 = 4,5</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Desplazamientos:</span> <span className="text-white">3 a la izq.</span></div>
+                                </div>
+                                <div className="mt-4 bg-primary-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">4,5 × 10³</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 2 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-4">Ejercicio 2</span>
+                                <p className="text-white font-medium mb-4">Expresar en notación científica:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-primary-300 mb-4">82000</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Mover coma:</span> <span className="text-white font-mono">82000 = 8,2</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Desplazamientos:</span> <span className="text-white">4 a la izq.</span></div>
+                                </div>
+                                <div className="mt-4 bg-primary-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">8,2 × 10⁴</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 3 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-4">Ejercicio 3</span>
+                                <p className="text-white font-medium mb-4">Expresar en notación científica:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-primary-300 mb-4">0,0036</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Mover coma:</span> <span className="text-white font-mono">3,6</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Desplazamientos:</span> <span className="text-white">3 a la der. (-)</span></div>
+                                </div>
+                                <div className="mt-4 bg-primary-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">3,6 × 10⁻³</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 4 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-4">Ejercicio 4</span>
+                                <p className="text-white font-medium mb-4">Expresar en notación científica:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-primary-300 mb-4">0,00072</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Mover coma:</span> <span className="text-white font-mono">7,2</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Desplazamientos:</span> <span className="text-white">4 a la der. (-)</span></div>
+                                </div>
+                                <div className="mt-4 bg-primary-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">7,2 × 10⁻⁴</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 5 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-primary-500 uppercase tracking-widest mb-4">Ejercicio 5</span>
+                                <p className="text-white font-medium mb-4">Expresar en notación científica:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-primary-300 mb-4">1200000</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Mover coma:</span> <span className="text-white font-mono">1,2</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Desplazamientos:</span> <span className="text-white">6 lugares</span></div>
+                                </div>
+                                <div className="mt-4 bg-primary-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">1,2 × 10⁶</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 6 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-4">Ejercicio 6</span>
+                                <p className="text-white font-medium mb-4">Convertir a número normal:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-amber-300 mb-4">3,5 × 10³</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <p>El exponente 3 indica mover la coma <strong>3 lugares</strong> hacia la derecha.</p>
+                                </div>
+                                <div className="mt-4 bg-amber-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">3500</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 7 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-4">Ejercicio 7</span>
+                                <p className="text-white font-medium mb-4">Convertir a número normal:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-amber-300 mb-4">7,8 × 10⁴</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <p>Mover la coma <strong>4 lugares</strong> hacia la derecha.</p>
+                                </div>
+                                <div className="mt-4 bg-amber-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">78000</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 8 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-4">Ejercicio 8</span>
+                                <p className="text-white font-medium mb-4">Convertir a número normal:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-amber-300 mb-4">2,4 × 10⁻³</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <p>Exponente negativo: mover coma hacia la izquierda <strong>3 lugares</strong>.</p>
+                                </div>
+                                <div className="mt-4 bg-amber-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">0,0024</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 9 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-green-500 uppercase tracking-widest mb-4">Ejercicio 9</span>
+                                <p className="text-white font-medium mb-4">Multiplicar:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-green-300 mb-4">(2×10³) (4×10²)</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Multiplicar núm:</span> <span className="text-white font-mono">2 × 4 = 8</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Sumar exp:</span> <span className="text-white">10³⁺² = 10⁵</span></div>
+                                </div>
+                                <div className="mt-4 bg-green-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">8 × 10⁵</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 10 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-green-500 uppercase tracking-widest mb-4">Ejercicio 10</span>
+                                <p className="text-white font-medium mb-4">Multiplicar:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-green-300 mb-4">(3×10⁴) (2×10³)</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Multiplicar núm:</span> <span className="text-white font-mono">3 × 2 = 6</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Sumar exp:</span> <span className="text-white">10⁴⁺³ = 10⁷</span></div>
+                                </div>
+                                <div className="mt-4 bg-green-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">6 × 10⁷</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 11 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-red-500 uppercase tracking-widest mb-4">Ejercicio 11</span>
+                                <p className="text-white font-medium mb-4">Dividir:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-red-300 mb-4 flex justify-center flex-col items-center">
+                                    <span>6 × 10⁷</span>
+                                    <span className="w-16 h-px bg-red-500/30 my-1"></span>
+                                    <span>2 × 10³</span>
+                                </div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Dividir núm:</span> <span className="text-white font-mono">6 / 2 = 3</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Restar exp:</span> <span className="text-white">10⁷⁻³ = 10⁴</span></div>
+                                </div>
+                                <div className="mt-4 bg-red-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">3 × 10⁴</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 12 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full">
+                                <span className="text-xs font-bold text-red-500 uppercase tracking-widest mb-4">Ejercicio 12</span>
+                                <p className="text-white font-medium mb-4">Dividir:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-red-300 mb-4 flex justify-center flex-col items-center">
+                                    <span>9 × 10⁶</span>
+                                    <span className="w-16 h-px bg-red-500/30 my-1"></span>
+                                    <span>3 × 10²</span>
+                                </div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. Dividir núm:</span> <span className="text-white font-mono">9 / 3 = 3</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Restar exp:</span> <span className="text-white">10⁶⁻² = 10⁴</span></div>
+                                </div>
+                                <div className="mt-4 bg-red-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-xl font-bold">3 × 10⁴</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 13 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full lg:col-span-1">
+                                <span className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-4 flex items-center gap-2"><Zap className="w-3 h-3" /> Ejercicio 13</span>
+                                <p className="text-white font-medium mb-4">A notación de ingeniería:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-purple-300 mb-4">0,000004 A</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. N. Científica:</span> <span className="text-white font-mono">4 × 10⁻⁶ A</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Reconocer:</span> <span className="text-white">10⁻⁶ = micro (μ)</span></div>
+                                </div>
+                                <div className="mt-4 bg-purple-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-2xl font-bold">4 μA</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 14 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full lg:col-span-1">
+                                <span className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-4 flex items-center gap-2"><Zap className="w-3 h-3" /> Ejercicio 14</span>
+                                <p className="text-white font-medium mb-4">A notación de ingeniería:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-purple-300 mb-4">5600000 Ω</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. N. Científica:</span> <span className="text-white font-mono">5,6 × 10⁶ Ω</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Reconocer:</span> <span className="text-white">10⁶ = mega (M)</span></div>
+                                </div>
+                                <div className="mt-4 bg-purple-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-2xl font-bold">5,6 MΩ</span>
+                                </div>
+                            </div>
+
+                            {/* Ejercicio 15 */}
+                            <div className="bg-slate-900/60 p-6 rounded-3xl border border-white/5 hover:border-primary-500/30 transition-colors flex flex-col h-full lg:col-span-1">
+                                <span className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-4 flex items-center gap-2"><Zap className="w-3 h-3" /> Ejercicio 15</span>
+                                <p className="text-white font-medium mb-4">A notación de ingeniería:</p>
+                                <div className="bg-black/40 p-3 rounded-xl font-mono text-center text-xl text-purple-300 mb-4">0,003 V</div>
+                                <div className="space-y-3 text-sm text-slate-300 flex-grow">
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>1. N. Científica:</span> <span className="text-white font-mono">3 × 10⁻³ V</span></div>
+                                    <div className="flex justify-between border-b border-white/5 pb-2"><span>2. Reconocer:</span> <span className="text-white">10⁻³ = mili (m)</span></div>
+                                </div>
+                                <div className="mt-4 bg-purple-500/10 p-4 rounded-xl text-center">
+                                    <span className="text-xs text-slate-500 uppercase block mb-1">Resultado:</span>
+                                    <span className="text-white font-mono text-2xl font-bold">3 mV</span>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>
