@@ -29,6 +29,7 @@ import { LAB_DATA } from './data/labData';
 const App = () => {
   const navigate = useNavigate();
   const [selectedLab, setSelectedLab] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleSelectLab = (lab) => {
     setSelectedLab(lab);
@@ -44,8 +45,11 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 selection:bg-primary-500 selection:text-white">
-      <Navbar onHomeClick={handleBackHome} />
-      <ModuleSidebar />
+      <Navbar
+        onHomeClick={handleBackHome}
+        onToggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)}
+      />
+      <ModuleSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
       <main className="container mx-auto px-6 py-12 md:py-20 relative">
         <Routes>

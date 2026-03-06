@@ -3,8 +3,7 @@ import { ChevronRight, ChevronDown, BookOpen, Layers, Menu, X } from 'lucide-rea
 import { useNavigate } from 'react-router-dom';
 import { CURRICULUM_DATA } from '../data/curriculumData';
 
-const ModuleSidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+const ModuleSidebar = ({ isOpen, setIsOpen }) => {
     const [expandedUnits, setExpandedUnits] = useState({ u1: true, u2: false });
 
     const toggleUnit = (unitId) => {
@@ -28,19 +27,6 @@ const ModuleSidebar = () => {
 
     return (
         <>
-            {/* Toggle Button for Mobile/Desktop */}
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={`fixed top-24 right-6 z-50 p-3 rounded-2xl glass-morphism text-white hover:text-primary-400 hover:scale-110 transition-all duration-300 shadow-lg shadow-primary-500/20 group ${isOpen ? '-translate-x-72 md:-translate-x-80' : ''}`}
-            >
-                {isOpen ? <X className="w-6 h-6" /> : (
-                    <div className="flex items-center gap-2">
-                        <Menu className="w-6 h-6" />
-                        <span className="text-xs font-bold uppercase tracking-wider hidden md:block">Contenidos</span>
-                    </div>
-                )}
-            </button>
-
             {/* Sidebar Overlay for Mobile */}
             {isOpen && (
                 <div
