@@ -51,7 +51,7 @@ const App = () => {
       />
       <ModuleSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      <main className="container mx-auto px-6 py-12 md:py-20 relative">
+      <main className="w-full px-6 py-12 md:py-20 relative">
         <Routes>
           <Route
             path="/"
@@ -99,7 +99,7 @@ const App = () => {
       </main>
 
       <footer className="border-t border-white/5 py-12 bg-slate-900/50">
-        <div className="container mx-auto px-6 text-center">
+        <div className="w-full px-6 text-center">
           <p className="text-slate-500 text-sm font-medium tracking-widest uppercase">
             Laboratorio de Corriente Continua • 2026
           </p>

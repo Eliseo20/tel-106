@@ -4,7 +4,7 @@ import { Zap, Menu, BookOpen } from 'lucide-react';
 const Navbar = ({ onHomeClick, onToggleSidebar }) => {
     return (
         <nav className="sticky top-0 z-50 w-full glass-morphism border-b border-white/5">
-            <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div className="w-full px-6 h-20 flex items-center justify-between">
                 {/* Logo */}
                 <div
                     onClick={onHomeClick}
