@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronRight, Layers } from 'lucide-react';
+import { ChevronDown, ChevronRight, Layers, ChevronLeft } from 'lucide-react';
 import TopicCard from './TopicCard';
 
 const HomeView = ({ units }) => {
@@ -13,6 +13,14 @@ const HomeView = ({ units }) => {
             ...prev,
             [unitId]: !prev[unitId]
         }));
+    };
+
+    const scroll = (elementId, direction) => {
+        const element = document.getElementById(elementId);
+        if (element) {
+            const scrollAmount = direction === 'left' ? -350 : 350;
+            element.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
     };
 
     return (
@@ -55,12 +63,31 @@ const HomeView = ({ units }) => {
                                 </div>
                             </button>
 
-                            {/* Horizontal Scroll Content */}
+                            {/* Horizontal Scroll Content with Navigation Arrows */}
                             <div className={`transition-all duration-500 ease-in-out ${isExpanded ? 'opacity-100 max-h-[2000px] visible' : 'opacity-0 max-h-0 invisible overflow-hidden'}`}>
-                                <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar px-2 pt-4">
-                                    {unit.temas.map((topic) => (
-                                        <TopicCard key={topic.id} topic={topic} />
-                                    ))}
+                                <div className="relative group/slider mt-4">
+                                    {/* Left Arrow */}
+                                    <button
+                                        onClick={() => scroll(`slider-${unit.id}`, 'left')}
+                                        className="absolute left-0 top-1/2 -translate-y-1/2 -ml-4 z-10 p-3 rounded-full bg-slate-900 border border-primary-500/30 text-primary-400 hover:bg-primary-500 hover:text-white hover:scale-110 transition-all opacity-0 group-hover/slider:opacity-100 shadow-xl hidden md:block"
+                                    >
+                                        <ChevronLeft className="w-6 h-6" />
+                                    </button>
+
+                                    {/* Scroll Container */}
+                                    <div id={`slider-${unit.id}`} className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar px-2 py-4 scroll-smooth">
+                                        {unit.temas.map((topic) => (
+                                            <TopicCard key={topic.id} topic={topic} />
+                                        ))}
+                                    </div>
+
+                                    {/* Right Arrow */}
+                                    <button
+                                        onClick={() => scroll(`slider-${unit.id}`, 'right')}
+                                        className="absolute right-0 top-1/2 -translate-y-1/2 -mr-4 z-10 p-3 rounded-full bg-slate-900 border border-primary-500/30 text-primary-400 hover:bg-primary-500 hover:text-white hover:scale-110 transition-all opacity-0 group-hover/slider:opacity-100 shadow-xl hidden md:block"
+                                    >
+                                        <ChevronRight className="w-6 h-6" />
+                                    </button>
                                 </div>
                             </div>
                         </div>
