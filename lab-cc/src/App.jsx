@@ -5,6 +5,7 @@ import ModuleSidebar from './components/ModuleSidebar';
 import HomeView from './components/HomeView';
 import LabArticleView from './components/LabArticleView';
 import AlgebraView from './components/AlgebraView';
+import EcuacionesView from './components/EcuacionesView';
 import { CURRICULUM_DATA } from './data/curriculumData';
 import { LAB_DATA } from './data/labData';
 
@@ -45,6 +46,10 @@ const App = () => {
           <Route
             path="/topic/t1-1"
             element={<AlgebraView onBack={handleBackHome} />}
+          />
+          <Route
+            path="/topic/t1-2"
+            element={<EcuacionesView onBack={handleBackHome} />}
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
