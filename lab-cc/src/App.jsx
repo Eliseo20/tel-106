@@ -33,11 +33,13 @@ const App = () => {
   const handleSelectLab = (lab) => {
     setSelectedLab(lab);
     navigate(`/lab/${lab.id}`);
+    window.scrollTo(0, 0);
   };
 
   const handleBackHome = () => {
     setSelectedLab(null);
     navigate('/');
+    window.scrollTo(0, 0);
   };
 
   return (

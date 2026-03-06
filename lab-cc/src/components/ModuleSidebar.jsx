@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronRight, ChevronDown, BookOpen, Layers, Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { CURRICULUM_DATA } from '../data/curriculumData';
 
 const ModuleSidebar = () => {
@@ -11,6 +12,18 @@ const ModuleSidebar = () => {
             ...prev,
             [unitId]: !prev[unitId]
         }));
+    };
+
+    const navigate = useNavigate();
+
+    const handleTopicClick = (tema) => {
+        if (typeof tema !== 'string' && tema.id) {
+            navigate(`/topic/${tema.id}`);
+            setIsOpen(false);
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
     };
 
     return (
@@ -76,6 +89,7 @@ const ModuleSidebar = () => {
                                         {unit.temas.map((tema, idx) => (
                                             <button
                                                 key={typeof tema === 'string' ? idx : tema.id}
+                                                onClick={() => handleTopicClick(tema)}
                                                 className="w-full text-left p-2.5 rounded-xl text-xs text-slate-400 hover:text-primary-400 hover:bg-white/5 transition-all duration-200"
                                             >
                                                 {typeof tema === 'string' ? tema : tema.titulo}

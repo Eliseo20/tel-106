@@ -7,6 +7,7 @@ const TopicCard = ({ topic }) => {
 
     const handleClick = () => {
         navigate(`/topic/${topic.id}`);
+        window.scrollTo(0, 0);
     };
 
     return (
