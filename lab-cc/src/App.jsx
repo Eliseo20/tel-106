@@ -7,6 +7,22 @@ import LabArticleView from './components/LabArticleView';
 import AlgebraView from './components/AlgebraView';
 import EcuacionesView from './components/EcuacionesView';
 import PotenciasView from './components/PotenciasView';
+import SumatoriaView from './components/SumatoriaView';
+import NotacionCientificaView from './components/NotacionCientificaView';
+import AritmeticaConversionView from './components/AritmeticaConversionView';
+import SimbolosElectricosView from './components/SimbolosElectricosView';
+import CircuitoCCView from './components/CircuitoCCView';
+import DisenoCircuitosView from './components/DisenoCircuitosView';
+import NormativaSeguridadView from './components/NormativaSeguridadView';
+import MagnitudesFisicasView from './components/MagnitudesFisicasView';
+import MagnitudesElectricasView from './components/MagnitudesElectricasView';
+import PrefijosSufijosView from './components/PrefijosSufijosView';
+import ResistenciaConductanciaView from './components/ResistenciaConductanciaView';
+import TiposResistenciaView from './components/TiposResistenciaView';
+import CodigoColoresView from './components/CodigoColoresView';
+import PuenteWheatstoneView from './components/PuenteWheatstoneView';
+import UsoMultimetroView from './components/UsoMultimetroView';
+import NormasInstrumentosView from './components/NormasInstrumentosView';
 import { CURRICULUM_DATA } from './data/curriculumData';
 import { LAB_DATA } from './data/labData';
 
@@ -56,6 +72,22 @@ const App = () => {
             path="/topic/t1-3"
             element={<PotenciasView onBack={handleBackHome} />}
           />
+          <Route path="/topic/t1-4" element={<SumatoriaView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-5" element={<NotacionCientificaView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-6" element={<AritmeticaConversionView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-7" element={<SimbolosElectricosView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-8" element={<CircuitoCCView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-9" element={<DisenoCircuitosView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-10" element={<NormativaSeguridadView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-11" element={<MagnitudesFisicasView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-12" element={<MagnitudesElectricasView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-13" element={<PrefijosSufijosView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-14" element={<ResistenciaConductanciaView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-15" element={<TiposResistenciaView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-16" element={<CodigoColoresView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-17" element={<PuenteWheatstoneView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-18" element={<UsoMultimetroView onBack={handleBackHome} />} />
+          <Route path="/topic/t1-19" element={<NormasInstrumentosView onBack={handleBackHome} />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
