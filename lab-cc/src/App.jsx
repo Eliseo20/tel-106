@@ -23,6 +23,42 @@ import CodigoColoresView from './components/CodigoColoresView';
 import PuenteWheatstoneView from './components/PuenteWheatstoneView';
 import UsoMultimetroView from './components/UsoMultimetroView';
 import NormasInstrumentosView from './components/NormasInstrumentosView';
+
+// UNIDAD 2 Imports
+import DiferenciaPotencialView from './components/DiferenciaPotencialView';
+import ConceptosVoltajeView from './components/ConceptosVoltajeView';
+import TiposVoltajeView from './components/TiposVoltajeView';
+import PrefijosSufijosVoltajeView from './components/PrefijosSufijosVoltajeView';
+import SimilPresionVoltajeView from './components/SimilPresionVoltajeView';
+import MedicionVoltajeView from './components/MedicionVoltajeView';
+import NormasInstrumentosVoltajeView from './components/NormasInstrumentosVoltajeView';
+import ConceptoIntensidadView from './components/ConceptoIntensidadView';
+import TiposIntensidadView from './components/TiposIntensidadView';
+import PrefijosSufijosIntensidadView from './components/PrefijosSufijosIntensidadView';
+import SimilFlujoCorrienteView from './components/SimilFlujoCorrienteView';
+import MedicionCorrienteView from './components/MedicionCorrienteView';
+import NormasSeguridadCorrienteView from './components/NormasSeguridadCorrienteView';
+import ConceptoPotenciaView from './components/ConceptoPotenciaView';
+import ConsumoElectricoView from './components/ConsumoElectricoView';
+import PrefijosSufijosPotenciaView from './components/PrefijosSufijosPotenciaView';
+import CalculoPotenciaView from './components/CalculoPotenciaView';
+import NormasSeguridadTrabajoView from './components/NormasSeguridadTrabajoView';
+import LeyOhmView from './components/LeyOhmView';
+import SimbologiaComponentesView from './components/SimbologiaComponentesView';
+import ConceptoCircuitoView from './components/ConceptoCircuitoView';
+import CircuitosSerieView from './components/CircuitosSerieView';
+import CircuitosParaleloView from './components/CircuitosParaleloView';
+import CircuitosMixtoView from './components/CircuitosMixtoView';
+import ConexionCircuitosView from './components/ConexionCircuitosView';
+import ConexionTrianguloEstrellaView from './components/ConexionTrianguloEstrellaView';
+import LeyKirchhoffView from './components/LeyKirchhoffView';
+import MallaView from './components/MallaView';
+import RamaView from './components/RamaView';
+import NodoView from './components/NodoView';
+import DivisorTensionView from './components/DivisorTensionView';
+import DivisorCorrienteView from './components/DivisorCorrienteView';
+import NormasInstrumentosFinalView from './components/NormasInstrumentosFinalView';
+
 import { CURRICULUM_DATA } from './data/curriculumData';
 import { LAB_DATA } from './data/labData';
 
@@ -94,6 +130,42 @@ const App = () => {
           <Route path="/topic/t1-17" element={<PuenteWheatstoneView onBack={handleBackHome} />} />
           <Route path="/topic/t1-18" element={<UsoMultimetroView onBack={handleBackHome} />} />
           <Route path="/topic/t1-19" element={<NormasInstrumentosView onBack={handleBackHome} />} />
+
+          {/* UNIDAD 2 RUTAS */}
+          <Route path="/topic/t2-1" element={<DiferenciaPotencialView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-2" element={<ConceptosVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-3" element={<TiposVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-4" element={<PrefijosSufijosVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-5" element={<SimilPresionVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-6" element={<MedicionVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-7" element={<NormasInstrumentosVoltajeView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-8" element={<ConceptoIntensidadView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-9" element={<TiposIntensidadView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-10" element={<PrefijosSufijosIntensidadView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-11" element={<SimilFlujoCorrienteView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-12" element={<MedicionCorrienteView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-13" element={<NormasSeguridadCorrienteView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-14" element={<ConceptoPotenciaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-15" element={<ConsumoElectricoView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-16" element={<PrefijosSufijosPotenciaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-17" element={<CalculoPotenciaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-18" element={<NormasSeguridadTrabajoView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-19" element={<LeyOhmView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-20" element={<SimbologiaComponentesView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-21" element={<ConceptoCircuitoView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-22" element={<CircuitosSerieView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-23" element={<CircuitosParaleloView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-24" element={<CircuitosMixtoView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-25" element={<ConexionCircuitosView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-26" element={<ConexionTrianguloEstrellaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-27" element={<LeyKirchhoffView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-28" element={<MallaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-29" element={<RamaView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-30" element={<NodoView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-31" element={<DivisorTensionView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-32" element={<DivisorCorrienteView onBack={handleBackHome} />} />
+          <Route path="/topic/t2-33" element={<NormasInstrumentosFinalView onBack={handleBackHome} />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
