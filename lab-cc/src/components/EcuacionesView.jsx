@@ -3,6 +3,7 @@ import { ArrowLeft, ChevronDown, ChevronRight, Calculator, Lightbulb } from 'luc
 
 const EcuacionesView = ({ onBack }) => {
     const [isExercisesOpen, setIsExercisesOpen] = useState(true);
+    const [isExtraExercisesOpen, setIsExtraExercisesOpen] = useState(false);
     const [openExercises, setOpenExercises] = useState([]);
 
     const toggleExercise = (id) => {
@@ -1233,6 +1234,475 @@ const EcuacionesView = ({ onBack }) => {
                     </div>
                 </div>
             
+            </section>
+            
+            {/* Additional Solved Exercises Section */}
+            <section className="space-y-4 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700">
+                <button
+                    onClick={() => setIsExtraExercisesOpen(!isExtraExercisesOpen)}
+                    className="w-full flex items-center justify-between p-6 glass-morphism rounded-2xl hover:bg-white/5 transition-all duration-300 group shadow-lg"
+                >
+                    <div className="flex items-center gap-4">
+                        <div className={`p-3 rounded-xl transition-colors duration-300 ${isExtraExercisesOpen ? 'bg-primary-500 text-white' : 'bg-white/5 text-primary-400 group-hover:bg-primary-500/20'}`}>
+                            <Calculator className="w-6 h-6" />
+                        </div>
+                        <div className="text-left">
+                            <h2 className="text-2xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                                Más Ejercicios Resueltos
+                            </h2>
+                            <p className="text-sm font-medium text-slate-500">Práctica adicional de refuerzo</p>
+                        </div>
+                    </div>
+                    <div className={`p-2 rounded-full transition-all duration-300 ${isExtraExercisesOpen ? 'bg-primary-500/10 text-primary-400' : 'bg-white/5 text-slate-400'}`}>
+                        {isExtraExercisesOpen ? <ChevronDown className="w-6 h-6" /> : <ChevronRight className="w-6 h-6" />}
+                    </div>
+                </button>
+
+                <div className={`transition-all duration-700 ease-in-out overflow-hidden ${isExtraExercisesOpen ? 'opacity-100 max-h-[20000px] visible mt-4' : 'opacity-0 max-h-0 invisible'}`}>
+                    <div className="glass-morphism rounded-[2.5rem] p-10 md:p-14 space-y-12 list-none border border-primary-500/10">
+                        {/* Subtitle */}
+                        <div className="space-y-6">
+                            <h2 className="text-3xl font-black text-white leading-tight flex items-center gap-3">
+                                <Calculator className="w-8 h-8 text-primary-400" />
+                                Ejercicios de Refuerzo
+                            </h2>
+                            <p className="text-slate-300 text-lg">
+                                Continúa practicando con estos ejercicios resueltos paso a paso.
+                            </p>
+                        </div>
+
+                        {/* NEW EXERCISES WILL GO HERE */}
+                        {/* Exercise 16 (User 1) */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button
+                                onClick={() => toggleExercise(16)}
+                                className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                            >
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                        Ejercicio 16
+                                    </h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">
+                                        2x + 5 = 13
+                                    </div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(16) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            </button>
+
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(16) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative">
+                                    <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span>
+                                </div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Restar 5 a ambos lados</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x = 13 - 5</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x = 8</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Dividir entre 2</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 8 / 2</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 4</div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center">
+                                        <h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4>
+                                        <div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                            x = 4
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 17 (User 2) */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button
+                                onClick={() => toggleExercise(17)}
+                                className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                            >
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                        Ejercicio 17
+                                    </h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">
+                                        3x - 7 = 11
+                                    </div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(17) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            </button>
+
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(17) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative">
+                                    <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span>
+                                </div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Sumar 7 a ambos lados</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x = 11 + 7</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x = 18</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Dividir entre 3</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 18 / 3</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 6</div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center">
+                                        <h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4>
+                                        <div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                            x = 6
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 18 (User 3) */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button
+                                onClick={() => toggleExercise(18)}
+                                className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                            >
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                        Ejercicio 18
+                                    </h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">
+                                        4x + 2² = 20
+                                    </div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(18) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            </button>
+
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(18) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative">
+                                    <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span>
+                                </div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Resolver potencia</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2² = 4</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x + 4 = 20</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 4</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x = 16</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir entre 4</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 4</div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center">
+                                        <h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4>
+                                        <div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                            x = 4
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 19 (User 4) */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button
+                                onClick={() => toggleExercise(19)}
+                                className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                            >
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                        Ejercicio 19
+                                    </h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">
+                                        5x - 3² = 7
+                                    </div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(19) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            </button>
+
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(19) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative">
+                                    <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span>
+                                </div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Resolver potencia</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3² = 9</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">5x - 9 = 7</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Sumar 9</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">5x = 16</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir entre 5</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 16 / 5</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 3.2</div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center">
+                                        <h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4>
+                                        <div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                            x = 3.2
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 20 (User 5) */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button
+                                onClick={() => toggleExercise(20)}
+                                className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left"
+                            >
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm flex items-center gap-2">
+                                        Ejercicio 20
+                                    </h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">
+                                        2x + 3x = 15
+                                    </div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(20) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}>
+                                    <ChevronDown className="w-6 h-6" />
+                                </div>
+                            </button>
+
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(20) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative">
+                                    <span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span>
+                                </div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Sumar términos semejantes</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">5x = 15</div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Dividir entre 5</h4>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 15 / 5</div>
+                                        <div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 3</div>
+                                    </div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center">
+                                        <h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4>
+                                        <div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                            x = 3
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 21 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(21)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 21</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">6x − 2x + 4 = 20</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(21) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(21) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Simplificar</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x + 4 = 20</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 4</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x = 16</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 4</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 4</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 22 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(22)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 22</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">3(x + 2) = 18</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(22) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(22) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Distribuir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x + 6 = 18</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 6</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x = 12</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 4</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 4</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 23 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(23)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 23</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">4(x − 3) + 2 = 18</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(23) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(23) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Distribuir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x − 12 + 2 = 18</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Simplificar</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x − 10 = 18</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Sumar 10</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x = 28</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 4:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 7</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 7</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 24 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(24)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 24</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">2²x + 4 = 20</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(24) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(24) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Potencia: 2² = 4</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x + 4 = 20</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 4</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x = 16</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 4</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 4</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 25 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(25)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 25</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">3x + 2³ = 19</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(25) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(25) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Potencia: 2³ = 8</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x + 8 = 19</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 8</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">3x = 11</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 11 / 3</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 11 / 3</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 26 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(26)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 26</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">2x − 4 = 5x − 13</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(26) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(26) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Restar 2x</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">−4 = 3x − 13</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Sumar 13</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">9 = 3x</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 3</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 3</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 27 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(27)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 27</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">5(x + 1) = 3x + 11</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(27) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(27) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Distribuir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">5x + 5 = 3x + 11</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 3x</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x + 5 = 11</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Restar 5</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x = 6</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 4:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 3</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 3</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 28 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(28)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 28</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">7x − 3(x − 2) = 18</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(28) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(28) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Distribuir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">7x − 3x + 6 = 18</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Simplificar</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x + 6 = 18</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Restar 6</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">4x = 12</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 4:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 3</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 3</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 29 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(29)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 29</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">x/3 + 2 = 5</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(29) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(29) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Restar 2</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x/3 = 3</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Multiplicar por 3</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 9</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 9</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Exercise 30 */}
+                        <div className="bg-slate-900/60 rounded-3xl border border-white/5 overflow-hidden">
+                            <button onClick={() => toggleExercise(30)} className="w-full p-8 flex items-center justify-between hover:bg-white/5 transition-colors text-left">
+                                <div className="space-y-2">
+                                    <h3 className="text-primary-400 font-bold uppercase tracking-wider text-sm">Ejercicio 30</h3>
+                                    <div className="text-3xl font-mono text-white tracking-widest bg-black/30 px-6 py-4 rounded-xl border border-white/10 shadow-inner inline-block">2(3x − 1) = 4(x + 2)</div>
+                                </div>
+                                <div className={`p-3 rounded-full bg-white/5 text-slate-400 transition-transform duration-300 ${openExercises.includes(30) ? 'rotate-180 bg-primary-500/20 text-primary-400' : ''}`}><ChevronDown className="w-6 h-6" /></div>
+                            </button>
+                            <div className={`px-8 pb-8 space-y-8 transition-all duration-500 ease-in-out ${openExercises.includes(30) ? 'opacity-100 max-h-[2000px]' : 'opacity-0 max-h-0 overflow-hidden pb-0'}`}>
+                                <div className="h-px bg-white/10 w-full mb-6 relative"><span className="absolute left-1/2 -translate-x-1/2 -top-3 bg-slate-900 text-xs text-slate-500 px-4 font-bold uppercase tracking-widest">Solución Paso a Paso</span></div>
+                                <div className="space-y-6 text-slate-300">
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 1:</span> Distribuir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">6x − 2 = 4x + 8</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 2:</span> Restar 4x</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x − 2 = 8</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 3:</span> Sumar 2</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">2x = 10</div></div>
+                                    <div className="space-y-2"><h4 className="text-white font-bold flex items-center gap-2"><span className="text-primary-500">Paso 4:</span> Dividir</h4><div className="font-mono text-primary-200 bg-black/20 p-3 rounded-lg border border-white/5">x = 5</div></div>
+                                    <div className="mt-8 pt-6 border-t border-primary-500/20 text-center"><h4 className="text-xs uppercase tracking-widest text-primary-500 font-bold mb-2">Resultado Final</h4><div className="inline-block border-2 border-primary-500 text-white font-bold font-mono text-2xl px-6 py-3 rounded-xl shadow-[0_0_15px_rgba(16,185,129,0.2)]">x = 5</div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </section>
         </div>
     );
